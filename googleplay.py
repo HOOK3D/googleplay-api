@@ -3,13 +3,13 @@
 import base64
 import gzip
 import pprint
-import StringIO
+from io import StringIO
 import requests
 
-from google.protobuf import descriptor
-from google.protobuf.internal.containers import RepeatedCompositeFieldContainer
-from google.protobuf import text_format
-from google.protobuf.message import Message, DecodeError
+from protobuf import descriptor
+from protobuf.internal.containers import RepeatedCompositeFieldContainer
+from protobuf import text_format
+from protobuf.message import Message, DecodeError
 
 import googleplay_pb2
 import config
@@ -95,7 +95,7 @@ class GooglePlayAPI(object):
 
         # put your auth token in config.py to avoid multiple login requests
         if self.debug:
-            print "authSubToken: " + authSubToken
+            print ("authSubToken: " + authSubToken)
 
     def login(self, email=None, password=None, authSubToken=None):
         """Login to your Google Account. You must provide either:
